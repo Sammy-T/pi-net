@@ -1,0 +1,29 @@
+name: pi-net
+
+services:
+  tailscale:
+    container_name: tailscale
+    image: tailscale/tailscale:latest
+    hostname: pi-net
+    networks:
+      - pi-net-work
+    dns: ${PIHOLE_IP}
+    environment:
+      TS_AUTHKEY: ${TS_AUTHKEY}
+      TS_STATE_DIR: '/var/lib/tailscale'
+      # TS_USERSPACE: false
+      TS_EXTRA_ARGS: --advertise-exit-node
+    volumes:
+      - pi-net-data:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    restart: unless-stopped
+
+volumes:
+  pi-net-data:
+
+networks:
+  pi-net-work:
+    external: true

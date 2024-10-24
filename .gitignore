@@ -1,0 +1,8 @@
+# Environment file(s)
+.env
+
+# Pi-hole local volume directories
+etc-*/
+
+# Temp files
+.temp/
