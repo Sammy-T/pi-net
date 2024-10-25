@@ -1,6 +1,8 @@
 # pi-net
 
-[Docker](https://www.docker.com/) container configuration for [Tailscale](https://tailscale.com/) with [Pi-hole](https://pi-hole.net/) using Docker Compose.
+A [Docker](https://www.docker.com/) container configuration for [Tailscale](https://tailscale.com/) with [Pi-hole](https://pi-hole.net/) using Docker Compose.
+
+This sets up two containers and allows the Tailscale container to be used as an exit node with ad blocking provided by the Pi-hole container.
 
 > [!NOTE]
 > This configuration requires manually supplying the Pi-hole container's IP address to the Tailscale Docker Compose in order to correctly build the Tailscale container. \
@@ -77,6 +79,8 @@ docker compose up -d
 ```
 
 > [!NOTE]
-> The `tailscale/docker-compose.yml` file is configured to advertise the Tailscale container as an exit node.
+> The Tailscale container can be configured via the `tailscale/docker-compose.yml` file.
 >
-> Reference [Using Tailscale with Docker](https://tailscale.com/kb/1282/docker) to configure your container's settings.
+> See [Using Tailscale with Docker](https://tailscale.com/kb/1282/docker) for valid settings.
+>
+> **Re-run the build command after editing to update the container.**
