@@ -12,12 +12,6 @@ This sets up two containers and allows the Tailscale container to be used as an 
 
 ## Getting started
 
-### Create the Docker network
-
-```bash
-docker network create -d bridge pi-net-work
-```
-
 ### Set Pi-hole container variables
 
 Set variables as defined by Pi-hole's [environment variables](https://github.com/pi-hole/docker-pi-hole/#environment-variables).
