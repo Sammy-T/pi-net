@@ -25,4 +25,5 @@ services:
 
 networks:
   pi-net-work:
-    external: true
+    name: pi-net-work
+    attachable: true
